@@ -8,13 +8,15 @@ export interface userData {
 export type userState = {
   loading: boolean
   error: string | null
-  data: userData | {}
+  data: userData
 }
 
 export const userInitialState: userState = {
   loading: false,
   error: null,
-  data: {}
+  data: {
+    merchantId: ''
+  }
 }
 
 /**

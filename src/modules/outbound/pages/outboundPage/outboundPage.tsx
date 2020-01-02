@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import LoadingSpinner from '../../../../library/components/loadingSpinner'
 import { fetchOutboundOrders } from '../../outboundSlice'
 import { RootState } from '../../../../app/store/rootReducer'
-import { useUser } from '../../../user/useUser'
+import { useUserSelector } from '../../../user/userHooks/useUserSelector'
 
 export const OutboundPage = () => {
   const dispatch = useDispatch()
@@ -12,7 +12,7 @@ export const OutboundPage = () => {
     (state: RootState) => state.outbound
   )
 
-  const [user] = useUser()
+  const user = useUserSelector()
 
   const orders = allOrderIds.map(orderId => ordersById[orderId])
 
